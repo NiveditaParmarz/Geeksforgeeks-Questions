@@ -25,6 +25,34 @@ class Solution {
 
 Optimized approach:
 
+class Solution {
+    long max_sum(int a[], int n) {
+        // Your code here
+        int arrsum = 0; //this is the sum of the initial array. it will not be changed as we will need it for the formula.
+        int s0 = 0; //sum of the initial array multiplied with it's indices.
+        for(int i = 0; i < n; i++){
+            arrsum += a[i];
+            s0 += a[i] * i;
+        }
+        long maxSum = s0; //assuming first one is the max sum.
+        int si = s0; 
+        
+        for(int i = 0; i < n-1; i++){ //n-1 as we already have calculated for s0
+            int sip1 = si + arrsum - n* a[n-i-1];
+            if(sip1>maxSum) maxSum = sip1;
+           //maxSum = Math.max(maxSum, sip1);
+            si = sip1;
+        }
+        return maxSum;
+        
+        
+        
+        
+        
+        
+    }
+}
+
 
 
 
