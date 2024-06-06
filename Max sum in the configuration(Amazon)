@@ -1,0 +1,30 @@
+Question link: https://www.geeksforgeeks.org/problems/max-sum-in-the-configuration/1
+
+Brute force approach: (TLE error)
+
+class Solution {
+    long max_sum(int a[], int n) {
+
+        long maxSum = Long.MIN_VALUE;
+        
+        for(int i = 0; i < n; i++){
+            long currSum = 0;
+            
+            for(int j = 0; j < n; j++){
+                currSum = currSum + (long)(j * a[(j+i) %n]); 
+            }
+            maxSum = Math.max(currSum,maxSum);
+            
+        }
+
+        return maxSum;
+    }
+}
+
+------------------------------------------------
+
+Optimized approach:
+
+
+
+
