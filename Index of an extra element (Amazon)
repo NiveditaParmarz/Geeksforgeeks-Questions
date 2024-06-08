@@ -1,0 +1,26 @@
+Question link : https://www.geeksforgeeks.org/problems/index-of-an-extra-element/1
+
+class Solution {
+    public int findExtra(int n, int arr1[], int arr2[]) {
+        // add code here.
+        int lo = 0;
+        int hi = arr2.length - 1;
+        int index = n - 1; // n is the larger index that arr2 doesn't have. So in case loop finishes, the ans will be last index of arr1. which is n.
+       
+       
+        while(lo<=hi){
+            int mid = (lo+hi)/2;
+            if(arr1[mid]==arr2[mid]){
+                lo = mid + 1;
+            }
+            else{
+                index = mid; //because as the 2 elements are not equal, that index can also be of the extra element.
+                hi = mid - 1;
+            } 
+            
+        }
+        return index;
+        
+       
+    }
+}
