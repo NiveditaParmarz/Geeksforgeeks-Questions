@@ -1,0 +1,24 @@
+Given an array arr[] and an integer k where k is smaller than the size of the array, the task is to find the kth smallest element in the given array. It is given that all array elements are distinct.
+
+class Solution{
+    public static int kthSmallest(int[] arr, int l, int r, int k) 
+    { 
+        //Your code here
+        int n = arr.length;
+        PriorityQueue <Integer> mh = new PriorityQueue<>(Collections.reverseOrder()); //max heap
+        for(int i = 0; i < k; i++){ //added the first k elements of the array in max heap, assuming they are the smallesr
+            mh.add(arr[i]);
+        }
+        
+        for(int i = k; i < n; i++){ //starting from kth element
+            if(arr[i] < mh.peek()){ //we want smaller element //in max heap, max element will come on top
+                //we want this condition to be true, as we'll get a smaller element than the ones we already have
+                mh.remove(); //will remove the peak element
+                mh.add(arr[i]); //added the smaller element in max heap
+            }
+        }
+        
+        return mh.peek(); //kth smallest means, if k=3 ki jo 3rd smallest element hai wo chahiye, which will be the max in the end jab smallest numbers reh gaye hai heap mei.
+    
+    }    
+}
