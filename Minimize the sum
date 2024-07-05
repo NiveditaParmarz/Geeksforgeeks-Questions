@@ -1,0 +1,20 @@
+link : https://www.geeksforgeeks.org/problems/minimize-the-sum--170645/1
+
+class Solution {
+    long minimizeSum(int N, int arr[]) {
+        // code here
+        PriorityQueue<Integer> minheap = new PriorityQueue<>();
+        long sum = 0;
+        for(int i = 0; i < N; i++){
+            minheap.add(arr[i]);
+        }
+        while(minheap.size()>=2){
+            int x = minheap.remove();
+            int y = minheap.remove();
+            sum += x+y;
+            minheap.add(x+y);
+            
+        }
+        return sum;
+    }
+}
