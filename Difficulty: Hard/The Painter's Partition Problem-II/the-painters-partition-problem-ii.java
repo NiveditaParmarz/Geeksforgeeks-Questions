@@ -34,7 +34,7 @@ class Solution {
         int lo = maxOfArr(arr); //itna minimum time toh lagega hi.
     
         int hi = sumOfArr(arr);
-        int ans = sumOfArr(arr);
+        int ans = 0;
         
         while(lo <= hi){
             int currTime = lo + (hi-lo)/2;
